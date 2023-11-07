@@ -154,21 +154,3 @@ jobs:
       with:
         ingress-url: ${{ needs.dev-deploy.outputs.APP_INGRESS_URL }}
 
-    reports-minio:
-      needs: [code-coverage, unit-testing]
-      runs-on: ubuntu-latest
-      continue-on-error: true
-      steps:
-        - uses: actions/download-artifact@v3
-          with:
-            name: Mocha-Test-Result
-
-        - uses: mamal72/minio-perfect-deploy-action@main
-          with:
-            endpoint: https://76d6a95c-6d82-4800-a3ff-d574a90d1fc1-10-244-4-113-30510.papa.r.killercoda.com
-            access_key: minioadmin 
-            secret_key: minioadmin 
-            bucket: 'testing'
-            source_dir: 'kubernetes'
-            target_dir: '/'         
-            
