@@ -4,6 +4,6 @@ on:
 
 jobs:
     test:
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         steps:
             - run: cat /github/workflow/event.json
