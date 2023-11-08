@@ -1,0 +1,9 @@
+on:
+    issues: 
+        types: [opened, labeled]
+
+jobs:
+    test:
+        runs-on: windows-latest
+        steps:
+            - run: echo $GITHUB_EVENT_PATH
