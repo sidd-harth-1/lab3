@@ -6,4 +6,10 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - run: cat /github/workflow/event.json
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Read event file
+          run: |
+            # Read the contents of the event file
+            cat $GITHUB_EVENT_PATH
